@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.mobishift.avosstatistics" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>AVOSStatistics</name>
+	<js-module name="AVOSStatistics" src="www/AVOSStatistics.js">
+		<clobbers target="cordova.plugins.AVOSStatistics"/>
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="AVOSStatistics">
+				<param name="android-package" value="com.mobishift.avosstatistics.AVOSStatistics"/>
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml" >
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+		    <uses-permission android:name="android.permission.INTERNET"/>
+		    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+		    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+		    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+		</config-file>
+		<source-file src="src/android/AVOSStatistics.java" target-dir="src/com/mobishift/avosstatistics/AVOSStatistics"/>
+
+		<source-file src="src/android/android-async-http-1.4.6.jar" target-dir="libs/" />
+		<source-file src="src/android/avoscloud-sdk-v3.3.3.jar" target-dir="libs/" />
+		<source-file src="src/android/avoscloud-statistics-v3.3.3.jar" target-dir="libs/" />
+		<source-file src="src/android/httpmime-4.2.4.jar" target-dir="libs/" />
+		<source-file src="src/android/fastjson.jar" target-dir="libs/" />
+	</platform>
+</plugin>
